@@ -1,5 +1,5 @@
 def all_tile_ids():
-    return [id for id in range(1, 2**8)]
+    return [id for id in range(1, 2**8 - 1)]
 
 
 def unique_tile_ids():
@@ -11,13 +11,10 @@ def unique_tile_ids():
             break
 
         uid = ids[i]
-        print(uid)
         rotations = get_rotations_ids(uid)
 
-        if uid == 16:
-            print(rotations)
-        for j in range(i + 1, len(ids)):
-            for rotation in rotations:
+        for rotation in rotations:
+            for j in range(i + 1, len(ids)):
                 # Check if we still have a valid 'j' after 'del ids[j]'
                 if j >= len(ids):
                     break
